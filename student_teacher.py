@@ -23,8 +23,7 @@ class ConnMgoSTClln:
         return document
 
 
-item = ConnMgoSTClln()
-data = data={"_id":4,"stud_id":20,"teacher_id":11}
-item.insert_record(data)
-print(id)
+if __name__ == "__main__":
+    item = ConnMgoSTClln()
+    item.insert_record({"_id":5,"stud_id":20,"teacher_id":30})
 

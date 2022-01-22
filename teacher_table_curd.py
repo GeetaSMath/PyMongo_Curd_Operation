@@ -62,34 +62,10 @@ class ConnMgo:
         data = collection.delete_many({"Name": Name})
         return data
 
-item = ConnMgo()
-fun = {'_id': 1, 'Name':'laxmi'}
-rec=item.update_records(fun)
-print(rec)
-
-
-# update
-document_id = 6
-data = {'Name': 'laxmi'}
-ack = item.update_records(document_id, data)
-print(ack)
-
-#retrive all data
-records =item.get_all_records()
-print(records)
-
-# retrive data
-data ='pallavi'
-rec = item.get_record(data)
-print(rec)
-
-# data ='geeta'
-# rec = item.delete_records(data)
-# print(rec)
-
-# data = {'_id': 8, 'Name':'geeta', 'address': 'banglore'}
-data = {"_id":20, "teacher_name": "pallavi", "department":{"dept_id":4, "dept_Name":"civil"}}
-item.insert_record(data)
-print(id)
-
-
+if __name__ == "__main__":
+    item = ConnMgo()
+    # item.connection()
+    item.insert_record({"_id":50, "teacher_name": "pallavi", "department":{"dept_id":9, "dept_Name":"civil"}})
+    # item.update_records()
+    # item.get_record()
+    # item.delete_records()

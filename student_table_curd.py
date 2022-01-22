@@ -62,26 +62,14 @@ class ConnST:
         data = collection.delete_many({"Name": Name})
         return data
 
+if __name__ == "__main__":
+    item = ConnST()
+    item.connection()
+    item.insert_record( {'_id': 29, 'Name': 'param', 'address': 'banglore'})
+    item.update_records({2, 'rushi'})
+    item.get_all_records()
+    records = item.get_all_records()
+    print(records)
 
-item = ConnST()
-data = {'_id': 20, 'Name': 'puneeta', 'address': 'banglore'}
-item.insert_record(data)
-print(id)
-
-# update
-document_id = 6
-data = {'Name': 'laxmi'}
-ack = item.update_records(document_id, data)
-print(ack)
-# retrive all data
-records =item.get_all_records()
-print(records)
-
-# retrive data
-data ='geeta'
-rec = item.get_record(data)
-print(rec)
-
-data ='geeta'
-rec = item.delete_records(data)
-print(rec)
+    item.get_record()
+    item.delete_records()
