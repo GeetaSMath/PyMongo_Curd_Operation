@@ -64,8 +64,30 @@ class ConnMgo:
 
 if __name__ == "__main__":
     item = ConnMgo()
+    user_choice = int(input("Enter your choices "))
+    mydict = {
+            # 1:item.insert_record({'_id': 100, 'Name': 'param', 'address': 'banglor'}),
+            2:item.get_all_records(),
+            3:item.update_records(),
+            4:item.delete_records()
+    }
+
+    data=mydict.get(user_choice)
+    print(data)
+
+
+
+
+
+
+
+
+
+
+111111
+
     # item.connection()
-    item.insert_record({"_id":50, "teacher_name": "pallavi", "department":{"dept_id":9, "dept_Name":"civil"}})
+    # item.insert_record({"_id": 50, "teacher_name": "pallavi", "department": {"dept_id": 9, "dept_Name": "civil"}})
     # item.update_records()
     # item.get_record()
     # item.delete_records()

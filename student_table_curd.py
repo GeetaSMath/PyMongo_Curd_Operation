@@ -64,12 +64,14 @@ class ConnST:
 
 if __name__ == "__main__":
     item = ConnST()
-    item.connection()
-    item.insert_record( {'_id': 29, 'Name': 'param', 'address': 'banglore'})
-    item.update_records({2, 'rushi'})
-    item.get_all_records()
-    records = item.get_all_records()
-    print(records)
+    user_choice = int(input("Enter your choices "))
+    mydict = {
+            # 1:item.insert_record({'_id': 100, 'Name': 'param', 'address': 'banglor'}),
+            2:item.get_all_records(),
+            3:item.update_records(),
+            4:item.delete_records()
+    }
 
-    item.get_record()
-    item.delete_records()
+    data=mydict.get(user_choice)
+    print(data)
+
