@@ -48,6 +48,7 @@ class ConnST:
         :param data: data
         :return: data
         """
+        print(_id, data)
         collection = self.connection()
         data = collection.update_one({'_id': _id}, {"$set":data})
         return data
@@ -64,14 +65,15 @@ class ConnST:
 
 if __name__ == "__main__":
     item = ConnST()
+    item.connection()
+    # item.insert_record({"_id": 18, "teacher_name": "koushik", "department": {"dept_id": 10, "dept_Name": "CS"}})
+    # item.update_records(12,{'TeacherName': 'aishu'})
+    item.delete_records('pallavi')
+
     user_choice = int(input("Enter your choices "))
     mydict = {
-            # 1:item.insert_record({'_id': 100, 'Name': 'param', 'address': 'banglor'}),
-            2:item.get_all_records(),
-            3:item.update_records(),
-            4:item.delete_records()
+        # 1: print(item.get_all_records()),
+        # 2: print(item.get_record('laxmi'))
     }
-
-    data=mydict.get(user_choice)
-    print(data)
+    mydict.get(user_choice)
 

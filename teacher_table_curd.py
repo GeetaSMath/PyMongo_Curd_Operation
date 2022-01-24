@@ -1,3 +1,4 @@
+
 import pymongo
 
 class ConnMgo:
@@ -29,12 +30,13 @@ class ConnMgo:
         :return: data
         """
         collection = self.connection()
-        data = collection.find_one({'Name':Name})
+        data = collection.find_one({"TeacherName":Name})
         return data
 
     def get_all_records(self):
         """
         created function to get all records
+        :return: data
         :return: data
         """
         collection = self.connection()
@@ -59,35 +61,20 @@ class ConnMgo:
         :return: data
         """
         collection = self.connection()
-        data = collection.delete_many({"Name": Name})
+        data = collection.delete_many({"TeacherName": Name})
         return data
 
 if __name__ == "__main__":
     item = ConnMgo()
+    item.connection()
+    # item.insert_record({"_id": 502, "teacher_name": "pallavi", "department": {"dept_id": 10, "dept_Name": "civil"}})
+    # item.update_records(2,{'TeacherName': 'aishu'})
+    # item.delete_records('aishu')
+
     user_choice = int(input("Enter your choices "))
     mydict = {
-            # 1:item.insert_record({'_id': 100, 'Name': 'param', 'address': 'banglor'}),
-            2:item.get_all_records(),
-            3:item.update_records(),
-            4:item.delete_records()
-    }
+                1:print(item.get_all_records()),
+                2:print(item.get_record('laxmi'))
+     }
+    mydict.get(user_choice)
 
-    data=mydict.get(user_choice)
-    print(data)
-
-
-
-
-
-
-
-
-
-
-111111
-
-    # item.connection()
-    # item.insert_record({"_id": 50, "teacher_name": "pallavi", "department": {"dept_id": 9, "dept_Name": "civil"}})
-    # item.update_records()
-    # item.get_record()
-    # item.delete_records()
