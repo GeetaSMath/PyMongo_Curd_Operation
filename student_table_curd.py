@@ -18,9 +18,12 @@ class ConnST:
         :param data: passing data
         :return: document
         """
-        collection = self.connection()
-        document = collection.insert_one(data)
-        return document
+        try:
+            collection = self.connection()
+            document = collection.insert_one(data)
+            return document
+        except Exception as err:
+            return  err
 
     def get_record(self, Name):
         """
@@ -28,18 +31,24 @@ class ConnST:
         :param Name: passing param Name
         :return:
         """
-        collection = self.connection()
-        data = collection.find_one({'Name':Name})
-        return data
+        try:
+            collection = self.connection()
+            data = collection.find_one({'Name':Name})
+            return data
+        except Exception as err:
+            return err
 
     def get_all_records(self):
         """
         created function to get all records
         :return: data
         """
-        collection = self.connection()
-        data = collection.find()
-        return list(data)
+        try:
+            collection = self.connection()
+            data = collection.find()
+            return list(data)
+        except Exception as err:
+            return  err
 
     def update_records(self, _id, data):
         """
@@ -48,10 +57,14 @@ class ConnST:
         :param data: data
         :return: data
         """
-        print(_id, data)
-        collection = self.connection()
-        data = collection.update_one({'_id': _id}, {"$set":data})
-        return data
+        try:
+            print(_id, data)
+            collection = self.connection()
+            data = collection.update_one({'_id': _id}, {"$set":data})
+            ConnST.commitTransaction()
+            return data
+        except Exception as err:
+            return err
 
     def delete_records(self, Name):
         """
@@ -59,9 +72,13 @@ class ConnST:
         :param Name: passing parama name
         :return: data
         """
-        collection = self.connection()
-        data = collection.delete_many({"Name": Name})
-        return data
+        try:
+            collection = self.connection()
+            data = collection.delete_many({"Name": Name})
+            ConnST.commitTransaction()
+            return data
+        except Exception as err:
+            return err
 
 if __name__ == "__main__":
     item = ConnST()
@@ -72,7 +89,7 @@ if __name__ == "__main__":
 
     user_choice = int(input("Enter your choices "))
     mydict = {
-        # 1: print(item.get_all_records()),
+        1: print(item.get_all_records()),
         # 2: print(item.get_record('laxmi'))
     }
     mydict.get(user_choice)

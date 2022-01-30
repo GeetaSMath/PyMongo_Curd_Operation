@@ -12,6 +12,7 @@ class ConnMgo:
             print(database)
             collection = database['faculty']
             print(collection)
+            ConnMgo.commitTransaction()
         except Exception as err:
             return (err)
 
@@ -25,6 +26,7 @@ class ConnMgo:
             collection = self.connection()
             document = collection.insert_one(data)
             print(document)
+            ConnMgo.commitTransaction()
         except Exception as err:
             return err
 
@@ -38,6 +40,7 @@ class ConnMgo:
             collection = self.connection()
             data = collection.find_one({"TeacherName":Name})
             print (data)
+            ConnMgo.commitTransaction()
         except Exception as err:
             return err
 
@@ -51,6 +54,7 @@ class ConnMgo:
             collection = self.connection()
             data = collection.find()
             return list(data)
+            ConnMgo.commitTransaction()
         except Exception as err:
             return err
 
@@ -66,6 +70,7 @@ class ConnMgo:
             collection = self.connection()
             data = collection.update_one({'_id': _id}, {"$set":data})
             print(data)
+            ConnMgo.commitTransaction()
         except Exception as err:
             return err
 
@@ -79,6 +84,8 @@ class ConnMgo:
             collection = self.connection()
             data = collection.delete_many({"TeacherName": Name})
             print(data)
+            ConnMgo.commitTransaction()
+
         except Exception as err:
             return err
 
