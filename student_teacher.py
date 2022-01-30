@@ -6,11 +6,15 @@ class ConnMgoSTClln:
         created connection part
         :return: collection
         """
-        connection = pymongo.MongoClient("mongodb://localhost:27017")
-        database = connection["college"]
-        print(database)
-        collection = database['teacher_student_mapping']
-        return collection
+
+        try:
+            connection = pymongo.MongoClient("mongodb://localhost:27017")
+            database = connection["college"]
+            print(database)
+            collection = database['teacher_student_mapping']
+            print(collection)
+        except Exception as err:
+            return
 
     def insert_record(self, data):
         """
@@ -18,9 +22,12 @@ class ConnMgoSTClln:
         :param data: data
         :return: document
         """
-        collection = self.connection()
-        document = collection.insert_one(data)
-        return document
+        try:
+            collection = self.connection()
+            document = collection.insert_one(data)
+            print(document)
+        except Exception as err:
+            return err
 
 
 if __name__ == "__main__":
