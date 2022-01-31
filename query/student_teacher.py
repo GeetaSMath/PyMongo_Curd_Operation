@@ -1,20 +1,16 @@
 import pymongo
 
 class ConnMgoSTClln:
-    def connection(self):
-        """
-        created connection part
-        :return: collection
-        """
+    def __init__(self):
+        self.connection = self.Connection.get_connection()
+        self.database = self.Connection.get_connection.connection()
 
+    def connection(self):
         try:
-            connection = pymongo.MongoClient("mongodb://localhost:27017")
-            database = connection["college"]
-            print(database)
-            collection = database['teacher_student_mapping']
-            print(collection)
+            collection = self.database['student']
+            return collection
         except Exception as err:
-            return
+            return err
 
     def insert_record(self, data):
         """

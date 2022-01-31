@@ -1,20 +1,10 @@
 import pymongo
+from connection import Connection
 
 class ConnMgo:
-    def connection(self):
-        """
-         created function to create connectivity mongo to pymongo
-        :return: collection
-        """
-        try:
-            connection = pymongo.MongoClient("mongodb://localhost:27017")
-            database = connection["college"]
-            print(database)
-            collection = database['faculty']
-            print(collection)
-            ConnMgo.commitTransaction()
-        except Exception as err:
-            return (err)
+    def __init__(self):
+        self.connection = self.Connection.get_connection()
+        self.database = self.Connection.get_connection.connection()
 
     def insert_record(self, data):
         """

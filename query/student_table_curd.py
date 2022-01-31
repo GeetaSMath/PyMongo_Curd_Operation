@@ -1,15 +1,11 @@
 import pymongo
 
 class ConnST:
+    def __init__(self):
+        self.connection = self.Connection.get_connection()
+        self.database = self.Connection.get_connection.connection()
     def connection(self):
-        """
-         created connection part
-        :return: collection
-        """
-        connection = pymongo.MongoClient("mongodb://localhost:27017")
-        database = connection["college"]
-        print(database)
-        collection = database['student']
+        collection = self.database['student']
         return collection
 
     def insert_record(self, data):
