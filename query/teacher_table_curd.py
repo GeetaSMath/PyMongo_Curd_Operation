@@ -79,17 +79,3 @@ class ConnMgo:
         except Exception as err:
             return err
 
-if __name__ == "__main__":
-    item = ConnMgo()
-    item.connection()
-    item.insert_record({"_id": 502, "teacher_name": "pallavi", "department": {"dept_id": 10, "dept_Name": "civil"}})
-    item.update_records(2,{'TeacherName': 'aishu'})
-    item.delete_records('aishu')
-
-    user_choice = int(input("Enter your choices "))
-    mydict = {
-                1:print(item.get_all_records()),
-                2:print(item.get_record('laxmi'))
-     }
-    mydict.get(user_choice)
-

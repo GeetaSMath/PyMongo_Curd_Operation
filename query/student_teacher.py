@@ -26,7 +26,4 @@ class ConnMgoSTClln:
             return err
 
 
-if __name__ == "__main__":
-    item = ConnMgoSTClln()
-    item.insert_record({"_id":6,"stud_id":22,"teacher_id":23})
 

@@ -76,17 +76,3 @@ class ConnST:
         except Exception as err:
             return err
 
-if __name__ == "__main__":
-    item = ConnST()
-    item.connection()
-    # item.insert_record({"_id": 18, "teacher_name": "koushik", "department": {"dept_id": 10, "dept_Name": "CS"}})
-    # item.update_records(12,{'TeacherName': 'aishu'})
-    item.delete_records('pallavi')
-
-    user_choice = int(input("Enter your choices "))
-    mydict = {
-        1: print(item.get_all_records()),
-        # 2: print(item.get_record('laxmi'))
-    }
-    mydict.get(user_choice)
-
