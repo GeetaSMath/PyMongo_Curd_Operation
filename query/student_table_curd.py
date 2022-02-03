@@ -1,4 +1,3 @@
-import mongoengine
 
 class ConnST:
     def __init__(self):
@@ -18,6 +17,7 @@ class ConnST:
             collection = self.connection()
             document = collection.insert_one(data)
             return document
+            ConnMgo.commitTransaction()
         except Exception as err:
             return  err
 
@@ -31,6 +31,7 @@ class ConnST:
             collection = self.connection()
             data = collection.find_one({'Name':Name})
             return data
+            ConnMgo.commitTransaction()
         except Exception as err:
             return err
 
@@ -43,6 +44,7 @@ class ConnST:
             collection = self.connection()
             data = collection.find()
             return list(data)
+            ConnMgo.commitTransaction()
         except Exception as err:
             return  err
 

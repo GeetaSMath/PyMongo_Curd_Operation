@@ -1,5 +1,3 @@
-import pymongo
-from connection import Connection
 
 class ConnMgo:
     def __init__(self):

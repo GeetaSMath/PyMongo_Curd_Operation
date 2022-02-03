@@ -5,6 +5,10 @@ from query.teacher_table_curd import ConnMgo
 class ControllCall():
 
     def get_student_info(self):
+        """
+        get function to get information
+        :return:
+        """
         item = ConnST()
         item.insert_record()
         output=item.get_record()
@@ -14,6 +18,10 @@ class ControllCall():
         item.update_records()
 
     def get_teacher_info(self):
+        """
+         get teacher infromation
+        :return:
+        """
         item = ConnMgo()
         item.insert_record()
         output=item.get_record()
@@ -23,6 +31,10 @@ class ControllCall():
         item.delete_records()
 
     def get_stu_teacher_info(self):
+        """
+         get student and teacher
+        :return:
+        """
         item = ConnMgoSTClln()
         item.insert_record()
 

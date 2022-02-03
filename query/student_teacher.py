@@ -1,11 +1,13 @@
-import pymongo
-
 class ConnMgoSTClln:
     def __init__(self):
         self.connection = self.Connection.get_connection()
         self.database = self.Connection.get_connection.connection()
 
     def connection(self):
+        """
+         created function to make connection
+        :return:
+        """
         try:
             collection = self.database['student']
             return collection
